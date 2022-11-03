@@ -50,9 +50,8 @@ export class MainComponent implements OnInit {
     this.exchangeForm.get('currencyAmmountFrom')?.valueChanges.pipe(
       takeUntil(this.unsubscribingData$)
     ).subscribe(currencyAmmountFrom => {
-
+      this.createPair();
       this.setExchangeRate(this.pair)
-
       this.exchangeForm.get('currencyAmmountTo')?.setValue((currencyAmmountFrom
         * this.exchangeRate), { emitEvent: false })
     });
@@ -62,6 +61,8 @@ export class MainComponent implements OnInit {
     this.exchangeForm.get('currencyAmmountTo')?.valueChanges.pipe(
       takeUntil(this.unsubscribingData$)
     ).subscribe(currencyAmmountTo => {
+      this.createPair()
+
       this.setExchangeRate(this.reversePair);
       this.exchangeForm.get('currencyAmmountFrom')?.setValue(currencyAmmountTo * this.exchangeRate, { emitEvent: false })
     });
@@ -70,20 +71,20 @@ export class MainComponent implements OnInit {
   currencyTypeFromSubscribe(): void {
     this.exchangeForm.get('currencyTypeFrom')?.valueChanges.pipe(
       takeUntil(this.unsubscribingData$)
-    ).subscribe(currencyTypeFrom => {
-      this.createPair(this.exchangeForm.get('currencyTypeTo')?.value, currencyTypeFrom);
+    ).subscribe(() => {
+      this.createPair()
+
       this.setExchangeRate(this.pair);
 
-      this.exchangeForm.get('currencyAmmountTo')?.setValue(this.exchangeForm.get('currencyAmountFrom')?.value * this.exchangeRate)
+      // this.exchangeForm.get('currencyAmmountTo')?.setValue(this.exchangeForm.get('currencyAmountFrom')?.value * this.exchangeRate)
     })
   }
 
   currencyTypeToSubscribe(): void {
     this.exchangeForm.get('currencyTypeTo')?.valueChanges.pipe(
       takeUntil(this.unsubscribingData$)
-    ).subscribe(currencyTypeTo => {
-      this.createPair(this.exchangeForm.get('currencyTypeFrom')?.value, currencyTypeTo);
-
+    ).subscribe(() => {
+      this.createPair()
       this.setExchangeRate(this.reversePair);
     })
   }
@@ -103,9 +104,9 @@ export class MainComponent implements OnInit {
     this.reversePair = 'USD-UAH'
   }
 
-  createPair(currencyTo: string, currencyFrom: string): void {
-    this.pair = `${currencyTo}-${currencyFrom}`
-    this.reversePair = `${currencyFrom}-${currencyTo}`
+  createPair(): void {
+    this.pair = `${this.exchangeForm.get('currencyTypeFrom')?.value}-${this.exchangeForm.get('currencyTypeTo')?.value}`
+    this.reversePair = `${this.exchangeForm.get('currencyTypeTo')?.value}-${this.exchangeForm.get('currencyTypeFrom')?.value}`
   }
 
   // createReversePair(currencyFrom: string, currencyTo: string): void {
