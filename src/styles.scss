@@ -11,7 +11,6 @@
     max-width: 1360px;
 }
 
-
 @media (max-width: 1399.98px) {
     [class*="__container"] {
         max-width: 1170px;
@@ -42,5 +41,13 @@
         padding: 0 15px;
     }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -49,8 +49,6 @@ export class MainComponent implements OnInit {
     this.exchangeForm.get('currencyAmountFrom')?.valueChanges.pipe(
       takeUntil(this.unsubscribingData$)
     ).subscribe(currencyAmountFrom => {
-
-
       this.createPair();
       this.setExchangeRate(this.pair)
       this.exchangeForm.get('currencyAmountTo')?.setValue(Math.round(currencyAmountFrom
@@ -75,7 +73,6 @@ export class MainComponent implements OnInit {
     ).subscribe(() => {
       this.createPair();
       this.setExchangeRate(this.pair);
-
       this.exchangeForm.get('currencyAmountTo')?.setValue(Math.round(this.exchangeForm.get('currencyAmountFrom')?.value
         * this.exchangeRate * 100) / 100, { emitEvent: false })
     })
@@ -85,14 +82,12 @@ export class MainComponent implements OnInit {
     this.exchangeForm.get('currencyTypeTo')?.valueChanges.pipe(
       takeUntil(this.unsubscribingData$)
     ).subscribe(() => {
-      this.createPair()
+      this.createPair();
       this.setExchangeRate(this.reversePair);
-
       this.exchangeForm.get('currencyAmountFrom')?.setValue(Math.round(this.exchangeForm.get('currencyAmountTo')?.value
-        * this.exchangeRate * 100) / 100, { emitEvent: false })
+        * this.exchangeRate * 100) / 100, { emitEvent: false });
     })
   }
-
 
   createExchangeForm(): void {
     this.exchangeForm = this.formBuilder.group({
@@ -120,11 +115,6 @@ export class MainComponent implements OnInit {
     }
   }
 
-  setCurrentExchangeRate(pair: string): void {
-    this.createPair();
-    this.setExchangeRate(pair);
-  }
-
   createExchangeMap(currencyList: ICurrency[]) {
     this.exchangeMap.set(ExchangeRateEnum.USDUSD, 1)
     this.exchangeMap.set(ExchangeRateEnum.USDEUR,
@@ -145,5 +135,4 @@ export class MainComponent implements OnInit {
     this.unsubscribingData$.next();
     this.unsubscribingData$.complete();
   }
-
 }
