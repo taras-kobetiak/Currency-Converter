@@ -1,0 +1,51 @@
+<main class="page">
+    <div class="page__container">
+        <div class="page__form">
+            <div class="page__note">
+                <p>*Currency rates are taken from MonoApi.</p>
+            </div>
+            <div class="page__form form-page">
+                <form [formGroup]="exchangeForm" class="form-page__items">
+                    <div class="form-page__item">
+                        <div class="form-page__control">
+                            <div class="form-page__input">
+                                <input formControlName="currencyAmmountFrom" type="number">
+                            </div>
+                            <div class="form-page__select">
+                                <select formControlName="currencyTypeFrom">
+                                    <option value="UAH">UAH</option>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-page__text">
+                            <p>1 {{exchangeForm.get('currencyTypeFrom')?.value}} = {{exchangeMap.get(pair) |
+                                number: '2.2-2'}}
+                                {{exchangeForm.get('currencyTypeTo')?.value}}</p>
+                        </div>
+                    </div>
+                    <div class="form-page__item">
+                        <div class="form-page__control">
+                            <div class="form-page__input">
+                                <input formControlName="currencyAmmountTo" type="number">
+                            </div>
+                            <div class="form-page__select">
+                                <select formControlName="currencyTypeTo">
+                                    <option value="UAH">UAH</option>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-page__text">
+                            <p>1 {{exchangeForm.get('currencyTypeTo')?.value}} = {{exchangeMap.get(reversePair) |
+                                number: '2.2-2'}}
+                                {{exchangeForm.get('currencyTypeFrom')?.value}}</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

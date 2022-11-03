@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICurrency } from './shared/currency.interface';
+import { ICurrency } from '../../interfaces/currency.interface';
 
 @Injectable({
   providedIn: 'root'

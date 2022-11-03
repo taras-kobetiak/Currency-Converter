@@ -1,71 +1,8 @@
 <div class="wrapper">
-    <header class="header">
-        <div class="header__container">
-            <div class="header__logo">
-                <img src="https://freepngimg.com/download/money/63483-exchange-money-symbol-dollar-currency-rate.png"
-                    alt="logo">
-            </div>
-            <div class="header__title">
-                <h1>Currency Converter</h1>
-            </div>
-            <div class="header__exchange-rate">
-                <div class="header__dollar">Dollar: {{exchangeMap.get('USD-UAH') | number: '2.2-2'}}</div>
-                <div class="header__euro">Euro: {{exchangeMap.get('EUR-UAH')| number: '2.2-2'}}</div>
-            </div>
-        </div>
-    </header>
-    <main class="page">
-        <div class="page__container">
-            <div class="page__form">
-                <div class="page__note">
-                    <p>*Currency rates are taken from MonoApi.</p>
-                </div>
-                <div class="page__form form-page">
-                    <form [formGroup]="exchangeForm" class="form-page__items">
-                        <div class="form-page__item">
-                            <div class="form-page__control">
-                                <div class="form-page__input">
-                                    <input formControlName="currencyAmmountA" id="form-page__input1" type="number">
-                                </div>
-                                <div class="form-page__select">
-                                    <select formControlName="currencyTypeA">
-                                        <option value="UAH">UAH</option>
-                                        <option value="USD">USD</option>
-                                        <option value="EUR">EUR</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-page__text">
-                                <p>1 {{exchangeForm.get('currencyTypeA')?.value}} = some
-                                    {{exchangeForm.get('currencyTypeB')?.value}}</p>
-                            </div>
-                        </div>
-                        <div class="form-page__item">
-                            <div class="form-page__control">
-                                <div class="form-page__input">
-                                    <input formControlName="currencyAmmountB" id="form-page__input2" type="number">
-                                </div>
-                                <div class="form-page__select">
-                                    <select formControlName="currencyTypeB">
-                                        <option value="UAH">UAH</option>
-                                        <option value="USD">USD</option>
-                                        <option value="EUR">EUR</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-page__text">
-                                <p>1 {{exchangeForm.get('currencyTypeB')?.value}} = some
-                                    {{exchangeForm.get('currencyTypeA')?.value}}</p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__copy">©Taras Kobetiak</div>
-        </div>
-    </footer>
+    <app-header class="header"></app-header>
+    <div class="main">
+        <app-main class="main__content" *ngIf="!(isLoading$ |async)"></app-main>
+        <app-loading class="main__loading" *ngIf="isLoading$ |async"></app-loading>
+    </div>
+    <app-footer class="footer"></app-footer>
 </div>
