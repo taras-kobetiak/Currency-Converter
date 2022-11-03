@@ -4,10 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoadingComponent } from './loading/loading.component';
+import { HeaderComponent } from './component/header/header.component';
+import { MainComponent } from './component/main/main.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { LoadingComponent } from './component/loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 

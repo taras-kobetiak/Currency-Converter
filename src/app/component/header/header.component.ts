@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { ICurrency } from '../interfaces/currency.interface';
-import { LoadingService } from '../loading/services/loading/loading.service';
-import { ExchangeRateService } from '../services/exchange/exchange-rate.service';
+import { ICurrency } from '../../interfaces/currency.interface';
+import { LoadingService } from '../../services/loading/loading.service';
+import { ExchangeRateService } from '../../services/exchange/exchange-rate.service';
 
 @Component({
   selector: 'app-header',

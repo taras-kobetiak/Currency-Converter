@@ -2,14 +2,14 @@
     <div class="page__container">
         <div class="page__form">
             <div class="page__note">
-                <p>*Currency rates are taken from MonoApi.</p>
+                <p>*Currency rates are taken from PrivatBankApi.</p>
             </div>
             <div class="page__form form-page">
                 <form [formGroup]="exchangeForm" class="form-page__items">
                     <div class="form-page__item">
                         <div class="form-page__control">
                             <div class="form-page__input">
-                                <input formControlName="currencyAmmountFrom" type="number">
+                                <input formControlName="currencyAmountFrom" type="number">
                             </div>
                             <div class="form-page__select">
                                 <select formControlName="currencyTypeFrom">
@@ -28,7 +28,7 @@
                     <div class="form-page__item">
                         <div class="form-page__control">
                             <div class="form-page__input">
-                                <input formControlName="currencyAmmountTo" type="number">
+                                <input formControlName="currencyAmountTo" type="number">
                             </div>
                             <div class="form-page__select">
                                 <select formControlName="currencyTypeTo">
