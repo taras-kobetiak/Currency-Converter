@@ -1,0 +1,99 @@
+/*================================================*/
+.page {
+  margin: 0 auto;
+}
+
+.page__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page__note {
+  margin-bottom: 30px;
+  font-size: 16px;
+  opacity: 0.5;
+  align-self: start;
+}
+@media (max-width: 767.98px) {
+  .page__note {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}
+
+.form-page__items {
+  display: flex;
+  column-gap: 50px;
+  row-gap: 20px;
+}
+@media (max-width: 767.98px) {
+  .form-page__items {
+    flex-direction: column;
+  }
+}
+
+.form-page__img img {
+  max-width: 30px;
+}
+
+.form-page__item {
+  padding: 20px;
+  font-size: 18px;
+  width: 400px;
+  height: 120px;
+  background-color: #fff;
+  border: 1px solid rgb(230, 225, 225);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 991.98px) {
+  .form-page__item {
+    width: 350px;
+  }
+}
+@media (max-width: 767.98px) {
+  .form-page__item {
+    width: 290px;
+  }
+}
+
+.form-page__control {
+  display: flex;
+  gap: 10px;
+}
+
+.form-page__input input {
+  padding: 10px;
+  border: 1px solid rgb(222, 219, 219);
+  border-radius: 10px;
+}
+.form-page__input input :active {
+  border: none;
+}
+.form-page__input input:focus-visible {
+  outline: none;
+}
+@media (max-width: 767.98px) {
+  .form-page__input input {
+    width: 150px;
+  }
+}
+
+.form-page__select select {
+  padding: 10px;
+  border: 1px solid rgb(222, 219, 219);
+  border-radius: 10px;
+}
+.form-page__select select:focus-visible {
+  outline: none;
+}
+
+.form-page__text {
+  opacity: 0.5;
+}
